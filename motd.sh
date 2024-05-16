@@ -1,40 +1,40 @@
-#!/bin/bash
+#!/usr/bin/env bash
 source <(curl -s https://raw.githubusercontent.com/schulzrobin/Bash/main/misc/helper.func)
 # Copyright (c) 2024 schulzrobin
 # Author: schulzrobin (Robin Schulz)
 # https://robn.ch/l
 
-function mod_file() {
-msg_info "Disable current scripts"
-chmod -x /etc/upate-motd.d/*
-msg_ok "Scripts disabled"
+if [[ $EUID -ne 0 ]]; then
+  echo "This script must be run as root" 
+  exit 1
+  else
 
-msg_info "Create new motd file"
-
-# CODE TO GENERATE FILE
-
-msg_ok "motd file successfully created"
-
-msg_info "make file executable"
-chmod +x /etc/update-motd.d/01-custom
-
-exit
-}
-
-function install() {
-if [ ! dpkg -s screenfetch &> /dev/null ]; then
- msg_error "Screenfetch is not installed!";
+function installsw() {
  echo "Installing Screenfetch"
- apt install -y screenfetch >/dev/null 2>&1
- msg_ok "Screenfetch successfully installed"
-fi
-if [ ! dpkg -s inxi &> /dev/null ]; then
- msg_error "Inxi is not installed!";
+ apt-get install -y screenfetch >/dev/null
+ echo "Screenfetch successfully installed"
  echo "Installing Inxi"
- apt install -y inxi >/dev/null 2>&1
- msg_ok "Inxi successfully installed"
-fi
-exit
+ apt-get install -y inxi >/dev/null
+ echo "Inxi successfully installed"
 }
 
-install
+function motdfile() {
+ echo "Disable current scripts"
+ chmod -x /etc/update-motd.d/*
+ echo "Scripts disabled"
+
+ echo "Download custom motd file"
+ wget -q https://raw.githubusercontent.com/schulzrobin/Bash/main/01-custom -O /etc/update-motd.d/01-custom
+ echo "motd file successfully downloaded"
+ echo "make file executable"
+ chmod +x /etc/update-motd.d/01-custom
+}
+
+
+installsw
+motdfile
+
+echo "Motd successfully changed. Re-login for activation"
+
+fi
+exit
