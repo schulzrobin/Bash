@@ -4,20 +4,6 @@ source <(curl -s https://raw.githubusercontent.com/schulzrobin/Bash/main/misc/he
 # Author: schulzrobin (Robin Schulz)
 # https://robn.ch/l
 
-function header_info {
-clear
-cat <<"EOF"
-                    __      __
-   ____ ___  ____  / /_____/ /
-  / __  __ \/ __ \/ __/ __  / 
- / / / / / / /_/ / /_/ /_/ /  
-/_/ /_/ /_/\____/\__/\__,_/   
-                                                                                        
- 
-EOF
-}
-header_info
-
 function mod_file() {
 msg_info "Disable current scripts"
 chmod -x /etc/upate-motd.d/*
@@ -36,7 +22,6 @@ exit
 }
 
 function install() {
-header_info
 if [ ! dpkg -s screenfetch &> /dev/null ]; then
  msg_error "Screenfetch is not installed!";
  echo "Installing Screenfetch"
