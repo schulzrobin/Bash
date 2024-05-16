@@ -29,7 +29,7 @@ msg_info "Create new motd file"
 
 msg_ok "motd file successfully created"
 
-msg_info "make file executable
+msg_info "make file executable"
 chmod +x /etc/update-motd.d/01-custom
 
 exit
