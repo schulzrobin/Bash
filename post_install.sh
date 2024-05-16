@@ -8,7 +8,7 @@ if [[ $EUID -ne 0 ]]; then
 	  apt-get update && sudo apt-get upgrade -y
    
 	  sudo apt-get install dialog
-	  cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
+	  cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 76 16)
 	  options=(1 "Sublime Text 3" off    
 	    2 "LAMP Stack" off
 	    3 "Build Essentials" off
