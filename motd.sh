@@ -37,14 +37,14 @@ exit
 
 function install() {
 header_info
-if [[ ! dpkg -s screenfetch &> /dev/null ]]; then
- msg_error "Screenfetch is not installed!"
+if [ ! dpkg -s screenfetch &> /dev/null ]; then
+ msg_error "Screenfetch is not installed!";
  echo "Installing Screenfetch"
  apt install -y screenfetch >/dev/null 2>&1
  msg_ok "Screenfetch successfully installed"
 fi
-if [[ ! dpkg -s inxi &> /dev/null ]]; then
- msg_error "Inxi is not installed!"
+if [ ! dpkg -s inxi &> /dev/null ]; then
+ msg_error "Inxi is not installed!";
  echo "Installing Inxi"
  apt install -y inxi >/dev/null 2>&1
  msg_ok "Inxi successfully installed"
