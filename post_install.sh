@@ -7,7 +7,7 @@ if [[ $EUID -ne 0 ]]; then
    echo "Updating and Upgrading"
    apt-get update && apt-get upgrade -y
    apt-get install dialog
-   cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
+   cmd=(dialog --title "Robins Helper Script --separate-output --checklist "Treffe die auswahl, was installiert werden soll:" 22 76 16)
    options=(1 "Change motd" off    
 	    2 "Set NTP" off
 	    3 "Apache2" off
