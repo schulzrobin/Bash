@@ -14,7 +14,11 @@ if [[ $EUID -ne 0 ]]; then
 	    4 "LAMPP" off
 	    5 "Docker" off
      6 "Java JDK" off
-     7 "Backup Script" off)
+     7 "Backup Script" off
+     8 "Webmin" off
+     9 "Grafana" off
+     10 "InfluxDB" off
+     11 "NodeRed" off)
 
    choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
    clear
