@@ -53,5 +53,3 @@ exit
 }
 
 install
-
-echo "Please re-login to activate motd"
