@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 source <(curl -s https://raw.githubusercontent.com/schulzrobin/Bash/main/misc/helper.func)
 # Copyright (c) 2024 schulzrobin
 # Author: schulzrobin (Robin Schulz)
