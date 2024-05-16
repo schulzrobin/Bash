@@ -8,11 +8,13 @@ if [[ $EUID -ne 0 ]]; then
    apt-get update && apt-get upgrade -y
    apt-get install dialog
    cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
-   options=(1 "Sublime Text 3" off    
-	    2 "LAMP Stack" off
-	    3 "Build Essentials" off
-	    4 "Node.js" off
-	    5 "Git" off)
+   options=(1 "Change motd" off    
+	    2 "Set NTP" off
+	    3 "Apache2" off
+	    4 "LAMPP" off
+	    5 "Docker" off
+     6 "Java JDK" off
+     7 "Backup Script" off)
 
    choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
    clear
