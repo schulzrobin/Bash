@@ -4,10 +4,10 @@ if [[ $EUID -ne 0 ]]; then
   echo "This script must be run as root" 
   exit 1
   else
-	  echo "Updating and Upgrading"
-	  apt-get update && sudo apt-get upgrade -y
+	  #echo "Updating and Upgrading"
+	  #apt-get update && apt-get upgrade -y
    
-	  sudo apt-get install dialog
+	  apt-get install dialog
 	  cmd=(dialog --separate-output --checklist "Please Select Software you want to install:" 22 76 16)
 	  options=(1 "Sublime Text 3" off    
 	    2 "LAMP Stack" off
