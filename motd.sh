@@ -54,9 +54,4 @@ exit
 
 install
 
-msg_ok "Please re-login to activate motd"
-
-
-
-
-
+echo "Please re-login to activate motd"
