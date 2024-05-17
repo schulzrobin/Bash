@@ -10,15 +10,16 @@ if [[ $EUID -ne 0 ]]; then
    cmd=(dialog --title "Robins Helper Script --separate-output --checklist "Treffe die auswahl, was installiert werden soll:" 22 76 16)
    options=(1 "Change motd" off    
 	    2 "Set NTP" off
-	    3 "Apache2" off
-	    4 "LAMPP" off
-	    5 "Docker" off
-     6 "Java JDK" off
-     7 "Backup Script" off
-     8 "Webmin" off
-     9 "Grafana" off
-     10 "InfluxDB" off
-     11 "NodeRed" off)
+	    3 "Backup Script" off
+      4 "Apache2" off
+	    5 "LAMPP" off
+	    6 "Docker" off
+      7 "Java JDK" off
+      8 "" off
+      9 "Webmin" off
+      10 "Grafana" off
+      11 "InfluxDB" off
+      12 "NodeRed" off)
 
    choices=$("${cmd[@]}" "${options[@]}" 2>&1 >/dev/tty)
    clear
@@ -26,33 +27,28 @@ if [[ $EUID -ne 0 ]]; then
    do
    case $choice in
     1)
-     echo "Installing Sublime Text"
-     add-apt-repository ppa:webupd8team/sublime-text-3 -y
-     apt update
-     apt install sublime-text-installer -y
+     echo "Downloading motd script"
+     wget https://githubusercontent.com/schulzrobin/Bash/tree/main/motd.sh
+     echo "Make file executable"
+     chmod +x motd.sh
+     echo "Run motd.sh"
+     ./motd.sh
      ;;
 
     2)
-     echo "Installing Apache"
-     apt install apache2 -y
-     echo "Starting Apache Server"
-     service apache2 start
+     echo "Downloading NTP script"
      ;;
 
     3)
      echo "Installing Build Essentials"
-     apt install -y build-essential
      ;;
 
     4)
      echo "Installing Nodejs"
-     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
-     apt install -y nodejs
      ;;
 
     5)
      echo "Installing Git, please congiure git later..."
-     apt install git -y
      ;;
    esac
   done
