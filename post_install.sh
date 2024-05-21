@@ -1,4 +1,10 @@
 #!/bin/bash
+# post_install.sh
+# this script auto-installs my favourite and most
+# used server software. auto detects ubuntu
+# and debian based linux distros
+# copyright 2024 schulzrobin
+# https://robn.ch
 
 if [[ $EUID -ne 0 ]]; then
   echo "This script must be run as root" 
