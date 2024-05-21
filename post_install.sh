@@ -54,6 +54,20 @@ if [[ $EUID -ne 0 ]]; then
     5)
      echo "Installing Git, please congiure git later..."
      ;;
+    6)
+     ;;
+    7)
+     ;;
+    8)
+     ;;
+    9)
+     ;;
+    10)
+     ;;
+    11)
+     ;;
+    12)
+     ;;
    esac
   done
 fi
