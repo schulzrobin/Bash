@@ -5,8 +5,12 @@ if [[ $EUID -ne 0 ]]; then
   exit 1
   else
    echo "Updating and Upgrading"
-   apt-get update && apt-get upgrade -y
-   apt-get install dialog
+   apt-get update -y &> /dev/null
+   echo "Updated successfully"
+   apt-get upgrade -y &> /dev/null
+   echo "Upgraded successfully"
+   echo "Install dialog"
+   apt-get install -y dialog &> /dev/null
    cmd=(dialog --title "Robins Helper Script --separate-output --checklist "Treffe die auswahl, was installiert werden soll:" 22 76 16)
    options=(1 "Change motd" off    
 	    2 "Set NTP" off
